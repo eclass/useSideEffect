@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
  * @example
  * useSideEffect(state)
  */
-const useSideEffect = (state: object = {}): [object] => {
+const useSideEffect = (state: object = {}): [object, Function] => {
   const [actual, setActual] = useState(state)
   const [pre, setPre] = useState(null)
 
@@ -18,7 +18,7 @@ const useSideEffect = (state: object = {}): [object] => {
     setPre(actual)
   }, [actual, state])
 
-  return [actual]
+  return [actual, setActual]
 }
 
 export default useSideEffect
