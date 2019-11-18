@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/eclass/useSideEffect/compare/v1.0.0...v1.1.0) (2019-11-18)
+
+
+### Features
+
+* **readme:** add exameple and docs ([b11538b](https://github.com/eclass/useSideEffect/commit/b11538b733bece5a458ea57f574c47ee20a28bdf))
+
 # 1.0.0 (2019-11-18)
 
 
