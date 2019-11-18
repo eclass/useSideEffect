@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 
 /**
+ * Validate if object change to execute sideEffect.
+ *
  * @param {Object} state - React state.
  * @returns {Array} Any.
  * @example
