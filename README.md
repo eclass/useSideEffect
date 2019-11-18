@@ -28,12 +28,6 @@ npm run test
 
 ## Example 📖
 
-const [obj, setObj] = useSideEffect({
-nombre: "ender",
-apellido: "bonnet",
-edad: 29
-});
-
 `useSideEffect()` receives an initializer parameter and return two elements `[getter, setter]`.
 
 ```js
