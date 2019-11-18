@@ -1,6 +1,6 @@
 {
   "name": "@eclass/use-side-effect",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Hook para react que compara un objecto antes de ejecutar el efecto colateral",
   "main": "dist/index.js",
   "type": "commonjs",
