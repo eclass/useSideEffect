@@ -1,5 +1,19 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const useSideEffect_1 = require("./useSideEffect");
-exports.default = useSideEffect_1.default;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9saWIvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxtREFBMkM7QUFFM0Msa0JBQWUsdUJBQWEsQ0FBQSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB1c2VTaWRlRWZmZWN0IGZyb20gJy4vdXNlU2lkZUVmZmVjdCdcblxuZXhwb3J0IGRlZmF1bHQgdXNlU2lkZUVmZmVjdFxuIl19
+import { useState, useEffect } from 'react';
+/**
+ * @param {Object} state - React state.
+ * @returns {Array} Any.
+ * @example
+ * useSideEffect(state)
+ */
+export default function useSideEffect(state = {}) {
+    const [actual, setActual] = useState(state);
+    const [pre, setPre] = useState(null);
+    useEffect(() => {
+        if (JSON.stringify(state) !== JSON.stringify(pre)) {
+            setActual(state);
+            setPre(actual);
+        }
+    }, [actual, state, pre]);
+    return [actual, setActual];
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9saWIvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLFFBQVEsRUFBRSxTQUFTLEVBQUUsTUFBTSxPQUFPLENBQUE7QUFFM0M7Ozs7O0dBS0c7QUFDSCxNQUFNLENBQUMsT0FBTyxVQUFVLGFBQWEsQ0FBQyxRQUFnQixFQUFFO0lBQ3RELE1BQU0sQ0FBQyxNQUFNLEVBQUUsU0FBUyxDQUFDLEdBQUcsUUFBUSxDQUFDLEtBQUssQ0FBQyxDQUFBO0lBQzNDLE1BQU0sQ0FBQyxHQUFHLEVBQUUsTUFBTSxDQUFDLEdBQUcsUUFBUSxDQUFDLElBQUksQ0FBQyxDQUFBO0lBRXBDLFNBQVMsQ0FBQyxHQUFHLEVBQUU7UUFDYixJQUFJLElBQUksQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLEtBQUssSUFBSSxDQUFDLFNBQVMsQ0FBQyxHQUFHLENBQUMsRUFBRTtZQUNqRCxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUE7WUFDaEIsTUFBTSxDQUFDLE1BQU0sQ0FBQyxDQUFBO1NBQ2Y7SUFDSCxDQUFDLEVBQUUsQ0FBQyxNQUFNLEVBQUUsS0FBSyxFQUFFLEdBQUcsQ0FBQyxDQUFDLENBQUE7SUFFeEIsT0FBTyxDQUFDLE1BQU0sRUFBRSxTQUFTLENBQUMsQ0FBQTtBQUM1QixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdXNlU3RhdGUsIHVzZUVmZmVjdCB9IGZyb20gJ3JlYWN0J1xuXG4vKipcbiAqIEBwYXJhbSB7T2JqZWN0fSBzdGF0ZSAtIFJlYWN0IHN0YXRlLlxuICogQHJldHVybnMge0FycmF5fSBBbnkuXG4gKiBAZXhhbXBsZVxuICogdXNlU2lkZUVmZmVjdChzdGF0ZSlcbiAqL1xuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gdXNlU2lkZUVmZmVjdChzdGF0ZTogb2JqZWN0ID0ge30pOiBbb2JqZWN0LCBGdW5jdGlvbl0ge1xuICBjb25zdCBbYWN0dWFsLCBzZXRBY3R1YWxdID0gdXNlU3RhdGUoc3RhdGUpXG4gIGNvbnN0IFtwcmUsIHNldFByZV0gPSB1c2VTdGF0ZShudWxsKVxuXG4gIHVzZUVmZmVjdCgoKSA9PiB7XG4gICAgaWYgKEpTT04uc3RyaW5naWZ5KHN0YXRlKSAhPT0gSlNPTi5zdHJpbmdpZnkocHJlKSkge1xuICAgICAgc2V0QWN0dWFsKHN0YXRlKVxuICAgICAgc2V0UHJlKGFjdHVhbClcbiAgICB9XG4gIH0sIFthY3R1YWwsIHN0YXRlLCBwcmVdKVxuXG4gIHJldHVybiBbYWN0dWFsLCBzZXRBY3R1YWxdXG59XG4iXX0=
